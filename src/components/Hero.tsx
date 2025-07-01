@@ -1,11 +1,9 @@
 
 import { useState, useEffect } from 'react';
 import { FloatingAcademicElements } from './FloatingAcademicElements';
-import { PhotoUpload } from './PhotoUpload';
+import { ProfilePhoto } from './ProfilePhoto';
 
 export const Hero = () => {
-  const [showPhotoUpload, setShowPhotoUpload] = useState(false);
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Galaxy animated background */}
@@ -45,6 +43,11 @@ export const Hero = () => {
       
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto">
+          {/* Profile Photo Section */}
+          <div className="animate-fade-in mb-8">
+            <ProfilePhoto />
+          </div>
+          
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent animate-fade-in">
             ECE Engineer
           </h1>
@@ -59,25 +62,12 @@ export const Hero = () => {
               View My Skills
             </button>
             <button 
-              onClick={() => setShowPhotoUpload(!showPhotoUpload)}
-              className="px-8 py-3 border-2 border-purple-500 text-purple-400 rounded-lg font-semibold hover:bg-purple-500 hover:text-white transform hover:scale-105 transition-all duration-200"
-            >
-              Add Photo
-            </button>
-            <button 
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-3 border-2 border-blue-500 text-blue-400 rounded-lg font-semibold hover:bg-blue-500 hover:text-white transform hover:scale-105 transition-all duration-200"
             >
               Get In Touch
             </button>
           </div>
-          
-          {/* Photo Upload Component */}
-          {showPhotoUpload && (
-            <div className="mt-8 animate-fade-in">
-              <PhotoUpload />
-            </div>
-          )}
         </div>
       </div>
     </section>
